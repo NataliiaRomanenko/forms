@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './login.css';
-import {Redirect} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 import Modal from "../modal";
+import {BrowserRouter as Router} from "react-router-dom";
+
 
 
 
@@ -46,7 +48,7 @@ class Login extends Component{
     };
      render() {
         console.log("formState: ", this.state);
-         if(this.state.username === null) {return <Redirect to='/home' />};
+         if(this.state.username === null) {return <Redirect to='/home' />}
         return (
             <div className="blockWrapper">
                 <form  onSubmit={this.sendLogin}>
@@ -54,15 +56,15 @@ class Login extends Component{
                        <div className="group">
                            <label htmlFor="username">Username</label>
                            <input type="text" name="username" required onChange={this.handleChange}/>
-                           <span className="highlight"></span>
-                           <span className="bar"></span>
+                           <span className="highlight"/>
+                           <span className="bar"/>
 
                        </div>
                        <div className="group">
                            <label htmlFor="pass">Password</label>
                            <input type="password" name="pass" required onChange={this.handleChange}/>
-                           <span className="highlight"></span>
-                           <span className="bar"></span>
+                           <span className="highlight"/>
+                           <span className="bar"/>
 
                        </div>
                     </div>
@@ -72,7 +74,9 @@ class Login extends Component{
 
                    </div>
                 </form>
-                <Modal message={this.state.message} show={this.state.modalWindow} handleClose={this.hideModal}/>
+
+
+                <Modal message={this.state.message}  userName={this.state.username} show={this.state.modalWindow} handleClose={this.hideModal}/>
             </div>
      )};
 }

@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './app.css';
 import Login from "../login";
 import Home from "../home";
+import CreateUser from "../create-users";
+
 
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
                     <Route exact path="/" component={Home}/>
                     <Route path="/home" render={ () => <Home/>}/>
                     <Route path="/login" render={ () => <Login/>}/>
+                    <Route path="/create_users" render={ () => <CreateUser/>}/>
                 </Switch>
             </Router>
         </div>

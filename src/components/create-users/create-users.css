@@ -1,0 +1,18 @@
+form.createUser{
+    width: 500px;
+}
+.title{
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+}
+.tableWrapper,
+table{
+    width: 100%;
+}
+tr{
+    background: #fff;
+}
+th, td{
+    padding: 5px;
+}
