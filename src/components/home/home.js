@@ -3,7 +3,7 @@ import './home.css';
 import {NavLink} from "react-router-dom";
 
 
-const Home =()=>{
+const Home = () =>{
         return (
             <div className="blockWrapper">
                 <p className="homeTitle">
@@ -12,6 +12,6 @@ const Home =()=>{
                 </p>
             </div>
         )
-}
+};
 
 export default Home;

@@ -9,7 +9,7 @@ class CreateUser extends Component{
     constructor (props) {
         super(props);
         this.state = {
-            newUsers: []
+            newUsers: [],
         };
     }
     handleChange =(evt)=> {
@@ -22,7 +22,7 @@ class CreateUser extends Component{
             }]});
     }
     render(){
-        console.log('Create', this.state);
+        //console.log('Create', this.state.newUsers);
         const {newUsers} = this.state;
         return(
             <div className="blockWrapper column">

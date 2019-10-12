@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import './login.css';
-import {Redirect, Route, Switch} from "react-router";
+import {Redirect} from "react-router";
 import Modal from "../modal";
-import {BrowserRouter as Router} from "react-router-dom";
-
-
 
 
 class Login extends Component{
@@ -47,7 +44,7 @@ class Login extends Component{
         this.setState({modalWindow: false});
     };
      render() {
-        console.log("formState: ", this.state);
+        //console.log("formState: ", this.state);
          if(this.state.username === null) {return <Redirect to='/home' />}
         return (
             <div className="blockWrapper">
@@ -74,7 +71,6 @@ class Login extends Component{
 
                    </div>
                 </form>
-
 
                 <Modal message={this.state.message}  userName={this.state.username} show={this.state.modalWindow} handleClose={this.hideModal}/>
             </div>

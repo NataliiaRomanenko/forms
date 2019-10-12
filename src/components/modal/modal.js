@@ -10,12 +10,12 @@ const Modal = (props) => {
             <section className={`modalContent ${show ? "animate" :""}`}>
                 <div className='close' onClick={handleClose}>×</div>
                 <p className="modalMessage">{message}</p>
-                <p>Hello {userName}!
+                <p>Hello {userName}!<br/>
                     {
                         userName === "admin" ?
-                            <p>You can <NavLink to={'/create_users'}> create users</NavLink></p>
+                            <span>You can <NavLink to={'/create_users'}> create users</NavLink></span>
                             :
-                            <p>You can't create users</p>
+                            <span>You can't create users</span>
                     }
                     </p>
 
