@@ -7,7 +7,7 @@ const Modal = (props) => {
     const showHideClassName = show ? 'modal show' : 'modal';
     return(
         <div className={showHideClassName}>
-            <section className='modalContent animate'>
+            <section className={`modalContent ${show ? "animate" :""}`}>
                 <div className='close' onClick={handleClose}>×</div>
                 <p className="modalMessage">{message} </p>
             </section>

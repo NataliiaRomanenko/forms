@@ -41,6 +41,7 @@ class Login extends Component{
         }
    };
     hideModal = () => {
+        //setTimeout(()=> this.setState({modalWindow: false}), 1000)
         this.setState({modalWindow: false});
     };
      render() {
@@ -50,13 +51,23 @@ class Login extends Component{
             <div className="blockWrapper">
                 <form  onSubmit={this.sendLogin}>
                    <div className="container">
-                        <label htmlFor="username"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="username" required onChange={this.handleChange}/>
-                        <label htmlFor="pass"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="pass" required onChange={this.handleChange}/>
+                       <div className="group">
+                           <label htmlFor="username">Username</label>
+                           <input type="text" name="username" required onChange={this.handleChange}/>
+                           <span className="highlight"></span>
+                           <span className="bar"></span>
+
+                       </div>
+                       <div className="group">
+                           <label htmlFor="pass">Password</label>
+                           <input type="password" name="pass" required onChange={this.handleChange}/>
+                           <span className="highlight"></span>
+                           <span className="bar"></span>
+
+                       </div>
                     </div>
                    <div className="container buttonGroup">
-                      <button type="submit" disabled={!this.state.chkName.includes(this.state.username) ? true : false} data-loading-text="Login..." onClick={() => this.checkName()}>Action</button>
+                      <button type="submit" disabled={!this.state.chkName.includes(this.state.username) ? true : false} onClick={() => this.checkName()}>Action</button>
                       <button type="button" className="cancelbtn" onClick={()=> this.logOut()}>LogOut</button>
 
                    </div>

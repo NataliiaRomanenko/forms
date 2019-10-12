@@ -6,9 +6,9 @@ import {NavLink} from "react-router-dom";
 const Home =()=>{
         return (
             <div className="blockWrapper">
-                <p>
-                    Hello, please<br/>
-                    <NavLink to={'/login'}>Login</NavLink>
+                <p className="homeTitle">
+                    Hello, please
+                    <NavLink to={'/login'}> Login</NavLink>
                 </p>
             </div>
         )
