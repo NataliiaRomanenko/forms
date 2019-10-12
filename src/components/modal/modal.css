@@ -52,4 +52,22 @@
 }
 .modalMessage{
     text-align: center;
+    color: #503d5c;
+    font-weight: bold;
+}
+.modalContent a{
+    color: #ebcf20;
+    text-decoration: none;
+    font-size: 18px;
+}
+.modalContent a:after{
+    display: block;
+    content: "";
+    height: 3px;
+    width: 0;
+    background-color: #ebcf20;
+    transition: width .3s ease-in-out;
+}
+.modalContent a:hover:after{
+    width: 100%;
 }

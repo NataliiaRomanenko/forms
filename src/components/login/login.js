@@ -69,7 +69,7 @@ class Login extends Component{
                        </div>
                     </div>
                    <div className="container buttonGroup">
-                      <button type="submit" disabled={!this.state.chkName.includes(this.state.username) ? true : false} onClick={() => this.checkName()}>Action</button>
+                      <button type="submit" disabled={!this.state.chkName.includes(this.state.username)} onClick={() => this.checkName()}>Action</button>
                       <button type="button" className="cancelbtn" onClick={()=> this.logOut()}>LogOut</button>
 
                    </div>

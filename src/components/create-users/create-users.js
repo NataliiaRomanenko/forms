@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './create-users.css';
+import {NavLink} from "react-router-dom";
 
 
 
@@ -25,6 +26,7 @@ class CreateUser extends Component{
         const {newUsers} = this.state;
         return(
             <div className="blockWrapper column">
+                <NavLink to={'/home'} className="pagination">Home</NavLink>
                 <p className='title'>Let's create users</p>
                 <form className="createUser">
                     <div className="container">
@@ -51,7 +53,7 @@ class CreateUser extends Component{
                 {
                     newUsers.length ?
                         <div className="tableWrapper">
-                            <p className='title'>Users</p>
+                            <p className='title'><span className="userCount">{newUsers.length}</span> Users</p>
                             <table>
                                 <thead>
                                 <tr>

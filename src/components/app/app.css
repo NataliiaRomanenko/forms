@@ -12,3 +12,13 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+.pagination{
+    font-size: 14px;
+    padding: 10px 0;
+    color: #fff;
+    text-decoration: none;
+    transition: color .5s ease;
+}
+.pagination:hover{
+    color: #ebcf20;;
+}
