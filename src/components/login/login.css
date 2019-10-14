@@ -1,4 +1,4 @@
-form {
+.form {
     border: 3px solid #f1f1f1;
     width: 250px;
 }
@@ -19,7 +19,11 @@ input[type=text], input[type=password] {
 button {
     background-color: transparent;
     color: white;
-    padding: 14px 20px;
+    height: 45px;
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 8px 0;
     cursor: pointer;
     border: 2px solid #ebcf20 ;
@@ -32,9 +36,12 @@ button:disabled:hover{
 button:hover {
     opacity: .8;
 }
-
+button a{
+    padding: 14px 15px;
+    color: #fff;
+    text-decoration: none;
+}
 .cancelbtn {
-    width: auto;
     background-color: #ebcf20;
 }
 
@@ -80,7 +87,7 @@ button:hover {
     background: #ebcf20;
     transition: all 0.2s ease;
 }
-label {
+label, legend {
     color: #FFF;
     font-size: 16px;
     font-weight: normal;
