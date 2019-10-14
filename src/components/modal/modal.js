@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import './modal.css';
 
 const Modal = (props) => {
-    const {handleClose, isModalWindow, message, name}= props;
+    const {handleClose, isModalWindow, message, name, isAdmin}= props;
     const showHideClassName = isModalWindow ? 'modal show' : 'modal';
     return(
         <div className={showHideClassName}>
@@ -12,13 +12,12 @@ const Modal = (props) => {
                 <p className="modalMessage">{message}</p>
                 <p>Hello {name}!<br/>
                     {
-                        name=== "admin" ?
+                        isAdmin ?
                             <span>You can <NavLink to={'/create_users'}> create users</NavLink></span>
                             :
                             <span>You can't create users</span>
                     }
                     </p>
-
             </section>
         </div>
     )

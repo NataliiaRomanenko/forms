@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './login.css';
-import {Link, NavLink, Redirect} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 
 

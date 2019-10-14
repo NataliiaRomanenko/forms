@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './app.css';
 import Login from "../login";
 import Home from "../home";
@@ -54,7 +54,7 @@ class App extends Component {
     }
 
     render(){
-        console.log(this.state.users);
+        console.log("APP: ", this.state);
         return (
             <div className="app">
                 <Router>
@@ -62,13 +62,16 @@ class App extends Component {
                         <Route exact path="/" render ={()=> <Home/>}/>
                         <Route path="/home" render ={()=> <Home/>}/>
                         <Route path="/login" render ={()=> <Login
+
                             username = {this.state.username}
                             sendLogin = {this.sendLogin}
                             logOut = {this.logOut}
                             handleChange = {this.handleChange} />}/>
 
                         <Route path="/actions" render ={()=> <Actions
+                            isAdmin = {this.isAdministrator()}
                             username = {this.state.username}
+                            users = {this.state.users}
                             logOut = {this.logOut} />}/>
 
                         <Route path="/create_users" render = { () => this.isAdministrator() ? <CreateUser
@@ -76,7 +79,7 @@ class App extends Component {
                             handleChange = {this.handleChange}
                             newUsers = {this.state.users}
                           /> : <Home/>}/>
-                        {/*<Route path="*" render={() => 'We are sorry but the page you are looking for does not exist.'} />*/}
+                        <Route path="*" render={() => 'We are sorry but the page you are looking for does not exist.'} />
                     </Switch>
                 </Router>
             </div>
