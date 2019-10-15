@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './actions.css'
 import Modal from "../modal";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 
 class Actions extends Component {
@@ -12,6 +12,7 @@ class Actions extends Component {
             message:undefined,
         };
     };
+
     checkName = () => {
         this.setState({isModalWindow: true});
         let isAdmin  = this.props.isAdmin;
@@ -27,6 +28,7 @@ class Actions extends Component {
     render(){
         const {logOut, username, isAdmin} = this.props;
         console.log("actions props:", this.props);
+        if(isAdmin === undefined) return <Redirect to={'/'}/>
         return(
             <div className="blockWrapper">
                 <div className='form' >

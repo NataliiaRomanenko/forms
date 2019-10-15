@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import './app.css';
 import Login from "../login";
 import Home from "../home";
@@ -13,6 +13,7 @@ class App extends Component {
         super(props);
         this.state = {
             username: undefined,
+            isAdmin: undefined,
             users:[
                 {username: 'admin', isAdmin:true},
                 {username: 'user', isAdmin:false},
@@ -26,8 +27,14 @@ class App extends Component {
     }
     //Check ? Admin
     isAdministrator() {
-        if(!this.state.username) return false;
-        return this.state.users.find(itm => itm.username === this.state.username).isAdmin;
+        let currentUser = this.state.username;
+        if(!currentUser ) return false;
+        let admin = this.state.users.find(itm => itm.username === this.state.username).isAdmin;
+
+        console.log('admin', admin);
+        if (typeof this.state.users['isAdmin'] === "undefined") {
+            return false;
+        }else return admin;
     }
     componentDidMount() {
         const { users} = this.state;
@@ -47,14 +54,13 @@ class App extends Component {
             username: undefined});
     };
 
-
-
     addNewUser = (user) => {
         this.setState({users:[...this.state.users,user]});
     }
 
     render(){
         console.log("APP: ", this.state);
+
         return (
             <div className="app">
                 <Router>
@@ -62,13 +68,13 @@ class App extends Component {
                         <Route exact path="/" render ={()=> <Home/>}/>
                         <Route path="/home" render ={()=> <Home/>}/>
                         <Route path="/login" render ={()=> <Login
-
                             username = {this.state.username}
                             sendLogin = {this.sendLogin}
                             logOut = {this.logOut}
                             handleChange = {this.handleChange} />}/>
 
-                        <Route path="/actions" render ={()=> <Actions
+                        <Route path="/actions" render ={()=> this.isAdministrator() === undefined ? <Home/> :
+                            <Actions
                             isAdmin = {this.isAdministrator()}
                             username = {this.state.username}
                             users = {this.state.users}
@@ -79,6 +85,7 @@ class App extends Component {
                             handleChange = {this.handleChange}
                             newUsers = {this.state.users}
                           /> : <Home/>}/>
+
                         <Route path="*" render={() => 'We are sorry but the page you are looking for does not exist.'} />
                     </Switch>
                 </Router>
