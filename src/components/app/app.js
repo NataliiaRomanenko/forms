@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './app.css';
 import Login from "../login";
 import Home from "../home";
@@ -20,6 +20,11 @@ class App extends Component {
             ],
         };
     };
+    componentDidUpdate() {
+        localStorage.setItem('user', JSON.stringify(this.state.users));
+    }
+
+
     //Check ? LogIn
     isLoggedIn() {
         if (!this.state.username) {return false}
@@ -29,17 +34,11 @@ class App extends Component {
     isAdministrator() {
         let currentUser = this.state.username;
         if(!currentUser ) return false;
-        let admin = this.state.users.find(itm => itm.username === this.state.username).isAdmin;
 
-        console.log('admin', admin);
-        if (typeof this.state.users['isAdmin'] === "undefined") {
-            return false;
-        }else return admin;
+        return this.state.users.find(itm => itm.username === this.state.username).isAdmin;
+
     }
-    componentDidMount() {
-        const { users} = this.state;
-        localStorage.setItem('users', users);
-    }
+
     sendLogin =(e) => {
         e.preventDefault();
 
@@ -47,6 +46,7 @@ class App extends Component {
 
     handleChange =(evt)=> {
         this.setState({ [evt.target.name]: evt.target.value });
+
     };
 
     logOut = () => {
@@ -56,10 +56,11 @@ class App extends Component {
 
     addNewUser = (user) => {
         this.setState({users:[...this.state.users,user]});
+
     }
 
     render(){
-        console.log("APP: ", this.state);
+        console.log("APP: ", this.state.users);
 
         return (
             <div className="app">

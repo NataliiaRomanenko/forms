@@ -28,16 +28,6 @@ class CreateUser extends Component{
         });
     };
 
-
-/*    handlerCreateUser =()=>{
-        if(!this.state.username && !this.state.isAdmin) return
-        this.setState({userObj: {
-                username: this.state.username,
-                isAdmin: this.state.isAdmin
-            }
-            });
-    };*/
-
     render(){
 
         const {newUsers, addNewUser} = this.props;
